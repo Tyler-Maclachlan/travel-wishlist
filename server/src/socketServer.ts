@@ -13,11 +13,7 @@ export class SocketServer {
 
     public constructor(app: Application)  {
         this._httpServer = new Server(app);
-
-        this._httpServer;
-
         this._ioServer = require('socket.io')(this._httpServer);
-
         this._lambdaManager = new LambdaManager();
 
         this.config();
@@ -50,7 +46,6 @@ export class SocketServer {
             const locations = await this._lambdaManager.invokeLambda<IGetLocationsArgs>('getLocations', { socketId });
             socket.emit('locations', locations);
         } catch (error) {
-            console.log(error);
             socket.emit('locationError', { error: error.message });
         }
         this._setupSocket(socket);
