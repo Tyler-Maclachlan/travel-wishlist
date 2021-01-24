@@ -30,11 +30,12 @@ export class SocketServer {
     }
 
     private registerLambdas() {
-        this._lambdaManager.registerLambda('createUser', createUser);
-        this._lambdaManager.registerLambda('createLocation', createLocation);
-        this._lambdaManager.registerLambda('getLocations', getLocations);
-        this._lambdaManager.registerLambda('editLocation', editLocation);
-        this._lambdaManager.registerLambda('deleteLocation', deleteLocation);
+        this._lambdaManager
+            .registerLambda('createUser', createUser)
+            .registerLambda('createLocation', createLocation)
+            .registerLambda('getLocations', getLocations)
+            .registerLambda('editLocation', editLocation)
+            .registerLambda('deleteLocation', deleteLocation);
     }
 
     private config() {
