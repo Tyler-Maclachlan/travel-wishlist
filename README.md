@@ -3,7 +3,7 @@
 ## Install Dependencies
 **Server:**
 
-The better-sqlite3 dependency uses native libraries so python is required for it to work
+The `better-sqlite3` dependency uses native libraries so python is required for it to work
 
     cd server && npm install
 **Client:**
