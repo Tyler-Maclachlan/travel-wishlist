@@ -32,8 +32,6 @@ const MapIconOptions: IconOptions = {
 })
 export class TravelMapComponent implements OnInit, OnDestroy, AfterViewInit {
   public locations: ILocation[] = [];
-  public error: string = '';
-  public markers: Layer[] = [];
 
   public currentWidth: number;
   public currentHeight: number;
@@ -183,7 +181,7 @@ export class TravelMapComponent implements OnInit, OnDestroy, AfterViewInit {
     });
 
     this._map.eachLayer(layer => {
-      if (layer.getTooltip()) {
+      if (layer !== this._baseLayer) {
         layer.removeFrom(this._map);
       }
     })
