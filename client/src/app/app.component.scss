@@ -1,0 +1,18 @@
+.spacer {
+    flex: 1 1 auto;
+}
+
+.content {
+    flex: 1 1 auto;
+    display: flex;
+    padding: 10px;
+    flex-direction: column;
+    height: calc(100% - 100px);
+}
+
+code {
+    background: #777;
+    color: white;
+    padding: 5px;
+    border-radius: 5px;
+}

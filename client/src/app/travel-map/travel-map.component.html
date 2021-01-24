@@ -1,0 +1,11 @@
+<div class="map-container">
+    <div class="map-frame">
+        <div #primaryMap [style.height.px]="currentHeight" [style.width.px]="currentWidth" id="map">
+        </div>
+    </div>
+    <div *ngIf="dialogOpen" class="map-dialog">
+        <app-travel-form [location]="dialogLocation" (saveLocation)="onLocationSave($event)" (close)="onDialogClose()"
+            (deleteLocation)="onLocationDelete($event)">
+        </app-travel-form>
+    </div>
+</div>

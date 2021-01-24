@@ -1,0 +1,41 @@
+<mat-card>
+    <mat-card-header class="card-header">
+        <h1 style="margin: 0">{{ this.location.id ? 'Edit Location' : 'New Location'}}</h1>
+        <div style="flex: 1 1 auto"></div>
+        <button mat-icon-button (click)="onCancel()">
+            <mat-icon>close</mat-icon>
+        </button>
+    </mat-card-header>
+    <mat-card-content style="padding-top: 15px">
+        <form [formGroup]="travelForm" (ngSubmit)="onSubmit()">
+            <mat-form-field>
+                <mat-label>Title</mat-label>
+                <input matInput formControlName="title" />
+
+            </mat-form-field>
+
+            <div style="display: flex;">
+                <div>
+                    <mat-form-field>
+                        <mat-label>Longitude</mat-label>
+                        <input type="number" matInput formControlName="x">
+                    </mat-form-field>
+                </div>
+                <div>
+                    <mat-form-field>
+                        <mat-label>Latitude</mat-label>
+                        <input type="number" matInput formControlName="y">
+                    </mat-form-field>
+                </div>
+            </div>
+
+            <div class="button-container">
+                <button type="submit" [disabled]="!travelForm.valid" mat-flat-button color="primary">
+                    {{ this.location.id ? 'Save' : 'Create' }}
+                </button>
+
+                <button *ngIf="!!this.location.id" mat-button color="warn" (click)="onDelete()">Delete</button>
+            </div>
+        </form>
+    </mat-card-content>
+</mat-card>
